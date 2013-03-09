@@ -37,17 +37,24 @@ describe Iterm2Escape::Writer do
   describe '.write' do
     describe 'when .should_write? is true' do
       before { Iterm2Escape::Writer.stub(:should_write?).and_return(true) }
-      it 'writes' do
+      it 'writes to $stdout by default' do
         $stdout.should_receive(:write).with('Hi')
         Iterm2Escape::Writer.write('Hi')
+      end
+
+      it 'writes to the target arg if provided' do
+        target = double('target')
+        target.should_receive(:write).with('Hello')
+        Iterm2Escape::Writer.write('Hello', target)
       end
     end
 
     describe 'when .should_write? is false' do
       before { Iterm2Escape::Writer.stub(:should_write?).and_return(false) }
       it 'does not write' do
-        $stdout.should_not_receive(:write)
-        Iterm2Escape::Writer.write('Hi')
+        target = double('target')
+        target.should_not_receive(:write)
+        Iterm2Escape::Writer.write('Hi', target)
       end
     end
   end
