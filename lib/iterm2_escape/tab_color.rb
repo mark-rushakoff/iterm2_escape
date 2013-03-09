@@ -1,7 +1,7 @@
 require 'iterm2_escape/writer'
 
 module Iterm2Escape
-  module TabColor
+  module Tab
     class << self
       def red=(red)
         raise ArgumentError, "Value must be in range 0-255" unless (0..255).include?(red)
