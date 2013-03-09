@@ -1,5 +1,7 @@
 # Iterm2Escape
 
+[![Build Status](https://travis-ci.org/[mark-rushakoff]/[iterm2_escape].png)](https://travis-ci.org/[mark-rushakoff]/[iterm2_escape])
+
 TODO: Write a gem description
 
 ## Installation
@@ -18,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See the examples directory.
 
 ## Contributing
 
