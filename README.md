@@ -1,6 +1,7 @@
 # Iterm2Escape
 
 [![Build Status](https://travis-ci.org/mark-rushakoff/iterm2_escape.png)](https://travis-ci.org/mark-rushakoff/iterm2_escape)
+[![Code Climate](https://codeclimate.com/github/mark-rushakoff/iterm2_escape.png)](https://codeclimate.com/github/mark-rushakoff/iterm2_escape)
 
 TODO: Write a gem description
 
