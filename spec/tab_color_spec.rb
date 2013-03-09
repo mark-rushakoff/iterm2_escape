@@ -1,20 +1,24 @@
 require 'spec_helper'
 
-describe Iterm2Escape do
+describe Iterm2Escape::TabColor do
   shared_examples_for 'a color' do
     let(:method) { (color.to_s + '=').to_sym }
     it 'rejects values less than 0' do
-      expect { Iterm2Escape.public_send(method, -1) }.to raise_error(ArgumentError, /0-255/)
+      expect {
+        Iterm2Escape::TabColor.public_send(method, -1)
+      }.to raise_error(ArgumentError, /0-255/)
     end
 
     it 'rejects values more than 255' do
-      expect { Iterm2Escape.public_send(method, 256) }.to raise_error(ArgumentError, /0-255/)
+      expect {
+        Iterm2Escape::TabColor.public_send(method, 256)
+      }.to raise_error(ArgumentError, /0-255/)
     end
 
     it 'accepts values in between 0-255' do
       $stdout.should_receive(:write).with(color_128_message)
 
-      Iterm2Escape.public_send(method, 128)
+      Iterm2Escape::TabColor.public_send(method, 128)
     end
   end
 
@@ -38,11 +42,11 @@ describe Iterm2Escape do
   describe '.set_color' do
     it 'delegates to red=, green=, blue=' do
       # papayawhip, a particularly strange-named HTML color
-      Iterm2Escape.should_receive(:red=).with(255)
-      Iterm2Escape.should_receive(:green=).with(238)
-      Iterm2Escape.should_receive(:blue=).with(221)
+      Iterm2Escape::TabColor.should_receive(:red=).with(255)
+      Iterm2Escape::TabColor.should_receive(:green=).with(238)
+      Iterm2Escape::TabColor.should_receive(:blue=).with(221)
 
-      Iterm2Escape.set_color(255, 238, 221)
+      Iterm2Escape::TabColor.set_color(255, 238, 221)
     end
   end
 end
