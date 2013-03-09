@@ -16,7 +16,7 @@ describe Iterm2Escape::TabColor do
     end
 
     it 'accepts values in between 0-255' do
-      $stdout.should_receive(:write).with(color_128_message)
+      Iterm2Escape::Writer.should_receive(:write).with(color_128_message)
 
       Iterm2Escape::TabColor.public_send(method, 128)
     end
