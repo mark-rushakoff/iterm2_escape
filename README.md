@@ -1,6 +1,6 @@
 # Iterm2Escape
 
-[![Build Status](https://travis-ci.org/[mark-rushakoff]/[iterm2_escape].png)](https://travis-ci.org/[mark-rushakoff]/[iterm2_escape])
+[![Build Status](https://travis-ci.org/mark-rushakoff/iterm2_escape.png)](https://travis-ci.org/mark-rushakoff/iterm2_escape)
 
 TODO: Write a gem description
 
