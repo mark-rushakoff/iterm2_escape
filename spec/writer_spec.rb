@@ -3,35 +3,34 @@ require 'spec_helper'
 describe Iterm2Escape::Writer do
   describe '.should_write?' do
     let(:subject) { Iterm2Escape::Writer.should_write? }
-    describe 'when $SUPPRESS_ITERM2_ESCAPE_GEM is set' do
-      before { ENV.stub(:[]).with('SUPPRESS_ITERM2_ESCAPE_GEM').and_return('1') }
 
-      describe 'and it looks like we are using iTerm2' do
-        before { ENV.stub(:[]).with('TERM_PROGRAM').and_return('iTerm.app') }
-        it "will not write" do
-          expect(subject).to eq(false)
-        end
+    before do
+      ENV.stub(:[]).with('SUPPRESS_ITERM2_ESCAPE_GEM').and_return(nil)
+      ENV.stub(:[]).with('TERM_PROGRAM').and_return('iTerm.app')
+    end
+
+    shared_examples "will not write", will_write: false do
+      it "will not write" do
+        expect(subject).to eq(false)
       end
     end
 
-    describe 'when $SUPPRESS_ITERM2_ESCAPE_GEM is not set' do
-      before { ENV.stub(:[]).with('SUPPRESS_ITERM2_ESCAPE_GEM').and_return(nil) }
-
-      describe 'when it looks like we are in iTerm2' do
-        before { ENV.stub(:[]).with('TERM_PROGRAM').and_return('iTerm.app') }
-
-        it "will write" do
-          expect(subject).to eq(true)
-        end
+    describe 'when everything is lined up' do
+      it 'will write' do
+        expect(subject).to eq(true)
       end
+    end
 
-      describe 'when it does not look like we are in iTerm2' do
-        before { ENV.stub(:[]).with('TERM_PROGRAM').and_return('Apple_Terminal') }
+    describe 'when it is not iTerm2', will_write: false do
+      before { ENV.stub(:[]).with('TERM_PROGRAM').and_return('Apple_Terminal') }
+    end
 
-        it "will not write" do
-          expect(subject).to eq(false)
-        end
-      end
+    describe 'when $SUPPRESS_ITERM2_ESCAPE_GEM is set', will_write: false do
+      before { ENV.stub(:[]).with('SUPPRESS_ITERM2_ESCAPE_GEM').and_return('1') }
+    end
+
+    describe 'when $stdout is not a TTY', will_write: false do
+      before { $stdout.stub(:tty?).and_return(false) }
     end
   end
 
