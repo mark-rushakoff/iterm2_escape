@@ -6,4 +6,5 @@ gemspec
 group :development, :test do
   gem 'rspec', '~> 2.13'
   gem 'rake'
+  gem 'yard'
 end
