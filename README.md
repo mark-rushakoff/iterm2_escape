@@ -3,7 +3,11 @@
 [![Build Status](https://travis-ci.org/mark-rushakoff/iterm2_escape.png)](https://travis-ci.org/mark-rushakoff/iterm2_escape)
 [![Code Climate](https://codeclimate.com/github/mark-rushakoff/iterm2_escape.png)](https://codeclimate.com/github/mark-rushakoff/iterm2_escape)
 
-TODO: Write a gem description
+iterm2_escape provides a simple interface to controlling iTerm2 through escape codes (both proprietary and standard).
+
+Currently, it allows you to set the color of the tabs and to set the title of tabs and windows.
+
+(iterm2_escape is in no way affiliated with [iTerm2](https://github.com/gnachman/iTerm2) -- it was just made by a fan.)
 
 ## Installation
 
