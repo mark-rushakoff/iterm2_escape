@@ -8,9 +8,14 @@ Gem::Specification.new do |spec|
   spec.version       = Iterm2Escape::VERSION
   spec.authors       = ["Mark Rushakoff"]
   spec.email         = ["mark.rushakoff@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{A simple interface to iTerm2 proprietary escape codes.}
+  spec.summary       = <<-SUMMARY
+iterm2_escape provides a simple API to set:
+* tab chrome color
+* tab title
+* window title
+SUMMARY
+  spec.homepage      = "https://github.com/mark-rushakoff/iterm2_escape"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
