@@ -34,3 +34,8 @@ See the examples directory.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+iterm2_escape is available under the terms of the MIT License.
+See `LICENSE.txt` for more details.
